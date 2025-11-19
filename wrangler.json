@@ -1,0 +1,46 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */ {
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cloudflare-nextjs",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-10-08",
+  "compatibility_flags": [
+    // Enable Node.js API
+    // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#nodejs-compatibility-flag
+    "nodejs_compat",
+    // Allow to fetch URLs in your app
+    // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#global-fetch-strictly-public
+    "global_fetch_strictly_public"
+  ],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".open-next/assets"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "2ae584d40d0e4cefa642ec78b9e127e7",
+      "remote": true
+    }
+  ],
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "cloudflare-nextjs"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "BD",
+      "database_name": "serhii-test-db",
+      "database_id": "08808575-5c36-4b22-a334-ed02df24bc12",
+      "remote": true
+    }
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "upload_source_maps": true
+}
