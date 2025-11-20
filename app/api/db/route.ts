@@ -1,9 +1,9 @@
-import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { getDb } from "@/lib/db";
 
 export async function GET() {
-  const env = getCloudflareContext().env;
+  const db = getDb();
+  const value = await db.user.findMany();
 
-  const value = await env.BD.prepare("SELECT * FROM users;").all();
   return new Response(JSON.stringify(value), {
     status: 200,
     headers: { "Content-Type": "application/json" },

@@ -1,0 +1,4 @@
+-- Migration number: 0003 	 2025-11-19T15:21:25.791Z
+
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN "role" TEXT NOT NULL DEFAULT 'USER';
