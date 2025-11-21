@@ -4,15 +4,15 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "preview": "npm run prepare-prisma && opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "npm run prepare-prisma && opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "dev": "next dev",
     "start": "next start",
     "lint": "eslint",
     "add-migrate": "sh scripts/add-migrate.sh",
-    "update-client": "npx prisma generate"
+    "prepare-prisma": "npx prisma generate"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.13.0",
