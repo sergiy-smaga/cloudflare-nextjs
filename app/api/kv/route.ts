@@ -1,9 +1,7 @@
-import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { getKVList } from "@/lib/kv";
 
 export async function GET() {
-  const env = getCloudflareContext().env;
-
-  const value = await env.KV.list();
+  const value = await getKVList();
   return new Response(JSON.stringify(value), {
     status: 200,
     headers: { "Content-Type": "application/json" },

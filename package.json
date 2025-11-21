@@ -11,7 +11,8 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "eslint",
-    "add-migrate": "sh scripts/add-migrate.sh"
+    "add-migrate": "sh scripts/add-migrate.sh",
+    "update-client": "npx prisma generate"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.13.0",
